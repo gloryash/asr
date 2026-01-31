@@ -9,7 +9,7 @@ export class ASRService {
 
   constructor(private onMessage: (message: ASRMessage) => void) {}
 
-  init(workerPath = '/workers/asrWorker.js') {
+  init(workerPath = `${import.meta.env.BASE_URL}workers/asrWorker.js`) {
     if (this.worker) return;
     this.worker = new Worker(workerPath);
     this.worker.onmessage = (event) => {
