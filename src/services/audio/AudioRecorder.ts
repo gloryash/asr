@@ -13,7 +13,7 @@ export class AudioRecorder {
     });
     this.audioContext = new AudioContext({ sampleRate: 16000 });
 
-    await this.audioContext.audioWorklet.addModule('/workers/audioProcessor.js');
+    await this.audioContext.audioWorklet.addModule(`${import.meta.env.BASE_URL}workers/audioProcessor.js`);
 
     const source = this.audioContext.createMediaStreamSource(this.stream);
     this.workletNode = new AudioWorkletNode(this.audioContext, 'audio-processor');

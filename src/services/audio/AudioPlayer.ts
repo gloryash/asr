@@ -1,6 +1,6 @@
 import type { AudioPlayerCallbacks } from '../../types/audio';
 
-const DEFAULT_WORKLET_PATH = '/workers/pcmPlayerWorklet.js';
+const DEFAULT_WORKLET_PATH = `${import.meta.env.BASE_URL}workers/pcmPlayerWorklet.js`;
 
 export class AudioPlayer {
   private audioContext: AudioContext | null = null;
